@@ -6,10 +6,10 @@ Lassen is a documents repository for Lintcut.
 
 ## 2 Table of Content
 
-- [3 Lintcut Wordspace](#3-lintcut-wordspace)
+- [3 Lintcut Workspace](#3-lintcut-wordspace)
     - [3.1 Repositories](#31-repositories)
         - [3.1.1 Common Build Environment](#311-common-build-environment)
-        - [3.1.2 eXtended Common Libraries](#312-extended-common-libraries)
+        - [3.1.2 eXtended Common Libraries](#312-extended-common-library)
         - [3.1.3 Documents](#313-documents)
     - [3.2 Environment Setup](#32-environment-setup)
         - [3.2.1 Structures](#321-structures)
@@ -33,15 +33,25 @@ Lassen is a documents repository for Lintcut.
         - [5.3.1 Style Guidelines](#531-style-guidelines)
 - [6 Others](#6-others)
 
-## 3 Lintcut Wordspace
+## 3 Lintcut Workspace
+
+Lintcut Workspace defines all the details required to build and run my source code. It is also the standard develop environment in my daily work.
+
+[Setup Guide](workspace/setup-guide.md)
 
 ### 3.1 Repositories
 
 #### 3.1.1 Common Build Environment
 
-#### 3.1.2 eXtended Common Libraries
+Common Build Environment (CBE) is defined by Lintcut Workspace -- all the projects should follow it.
+
+#### 3.1.2 eXtended Common Library
+
+Extended Common Library (xCL) is a library created by me to provide basic/common reusable features.
 
 #### 3.1.3 Documents
+
+All the documents go to here
 
 ### 3.2 Environment Setup
 
