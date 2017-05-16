@@ -9,12 +9,14 @@ The Common Develop Environment is the standard development environmentused by me
 - [3 Overview](#3-overview)
 - [4 Workspace](#4-workspace)
     - [4.1 Hierarchy Overview](#41-hierarchy-overview)
-    - [4.2 The *CDEHOME* Environment Variable](#32-the-cdehome-environment-variable)
+    - [4.2 The *CDEHOME* Environment Variable](#42-the-cdehome-environment-variable)
         - [4.2.1 Set *CDEHOME* On Windows](#421-set-cdehome-on-windows)
         - [4.2.2 Set *CDEHOME* On Mac or Linux](#422-set-cdehome-on-mac-or-linux)
     - [4.3 The *pkgs* Directory](#43-the-pkgs-directory)
-        - [4.3.1 Naming of Output Directory](#431-naming-of-output-directory)
-        - [4.3.2 Example](#432-example)
+        - [4.3.1 PKGHOME Variable](#431-pkghome-variable)
+        - [4.3.2 Pkg Solution File and Makefile](#432-pkg-solution-file-and-makefile)
+        - [4.3.3 Naming of Output Directory](#433-naming-of-output-directory)
+        - [4.3.4 Example](#434-example)
     - [4.4 The *docs* Directory](#44-the-docs-directory)
         - [4.4.1 Repository Wiki](#441-repository-wiki)
         - [4.4.2 The *open-docs* Directory](#442-the-open-docs-directory)
@@ -69,11 +71,19 @@ The Common Develop Environment is the standard development environmentused by me
 ```
 $(CDEHOME)/             # The root directory of workspace
     pkgs/               # Distribute packages
+        pkg1/           # Package 1
+        pkg2/           # package 2
+        ......
     docs/               # All the documents (private & public)
-    open-docs/          # All the public documents
-    build/              # Common build environment (CBE)
+        open-docs/      # All the public documents
+        repo-docs/      # Repository documents
+        ......
+    build/              # Common Build Scripts (CBS)
     external/           # All 3rd-party libraries
     src/                # All the source code
+        repo1/          # Repository 1
+        repo2/          # Repository 2
+        ......
 ```
 
 ### 4.2 The *CDEHOME* Environment Variable
@@ -102,7 +112,29 @@ The `pkgs` directory contains multiple sub-directories named with `distribute pa
 - pkg solution file (for Visual Studio Projects)
 - pkg Makefile (for Non-Visual_studio Projects)
 
-#### 4.3.1 Naming of Output Directory
+#### 4.3.1 PKGHOME variable
+
+Each pkg has its own $(PKGHOME) variable, which is:
+
+    $(CDEHOME)/pkgs/<pkgname>
+
+#### 4.3.2 Pkg Solution File and Makefile
+
+For Visual Studio Project, each pkg has its own pkg.sln file which includes all the projects used by this package.
+For other projects, we also provide a makefile to build them.
+Directory hierarchy is like this:
+
+```
+$(CDEHOME)/pkgs/<pkgName>/
+    pkg.sln
+    Makefile
+    output/
+        win_x86_release_mt/
+        win_x86_debug_mt/
+        ...
+```
+
+#### 4.3.3 Naming of Output Directory
 
 The output directory names is like this:
 
@@ -136,7 +168,7 @@ output/<os>_<cpu>_<config>_<linktype>
 - `md` - Dynamically link to runtime libraries
 
 
-#### 4.3.2 Example
+#### 4.3.4 Example
 
 ```
 $(CDEHOME)/bin/
@@ -152,7 +184,7 @@ $(CDEHOME)/bin/
         output/win_x64_release_md/
     xvault/
         xvault.sln
-        xvault.mak
+        Makefile
         output/win_x86_debug_mt/
         output/win_x86_debug_md/
         output/win_x86_release_mt/
@@ -177,12 +209,12 @@ This directory contains all the public documents
 
 ### 4.6 The *build* Directory
 
-This directory contains `Common Build Environment (CBE)`.
+This directory contains `Common Build Scripts (CBS)`.
 
 **Check Out**
 
 ```bash
-git clone git@bitbucket.org:lintcut/cbe.git $(LCHOME)/build
+git clone git@bitbucket.org:lintcut/cbe.git $(CDEHOME)/build
 ```
 
 ### 4.7 The *external* Directory
