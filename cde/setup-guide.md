@@ -201,13 +201,34 @@ $(CDEHOME)/bin/
 
 ### 4.4 The *docs* Directory
 
-This directory contains all the documents (private or public)
+#### 4.4.1 Repository Wiki
 
-### 4.5 The *open-docs* Directory
+This directory contains all the repository wikis.
+
+```
+$(CDEHOME)/docs/wiki/
+    <Repo1>/
+    <Repo2>/
+    ...
+```
+
+For example, clone project xauth's wiki:
+
+```bash
+clone git@bitbucket-lintcut:lintcut/xauth.git/wiki $(CDEHOME)/docs/wiki/xauth/
+```
+
+#### 4.4.2 The *open-docs* Directory
 
 This directory contains all the public documents
 
-### 4.6 The *build* Directory
+Use following command to clone public document
+
+```bash
+clone git@github-lintcut:lintcut/lassen.git $(CDEHOME)/docs/open-docs/
+```
+
+### 4.5 The *build* Directory
 
 This directory contains `Common Build Scripts (CBS)`.
 
@@ -217,7 +238,7 @@ This directory contains `Common Build Scripts (CBS)`.
 git clone git@bitbucket.org:lintcut/cbe.git $(CDEHOME)/build
 ```
 
-### 4.7 The *external* Directory
+### 4.6 The *external* Directory
 
 All 3rd-party libraries are put in `external` directory, with following directory hierarchy:
 
@@ -274,7 +295,7 @@ $(CDEHOME)/external/
                 win_x64_debug_md/
 ```
 
-### 4.8 The *src* Directory
+### 4.7 The *src* Directory
 
 All the source code goes to this here, with following directory hierarchy:
 
