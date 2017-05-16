@@ -330,18 +330,18 @@ Since I have more than one git accounts from same or different providers. I conf
 
     *Clone a personal Github repository*
     
-    `"git@git.com"` should be changed to `"git@git-personal"`
+    `"git@github.com"` should be changed to `"git@github-personal"`
 
     ```
-    git clone git@git-personal:<personal-username>/personal-repository.git
+    git clone git@github-personal:<personal-username>/personal-repository.git
     ```
     
     *Clone a company Git repository*
     
-    `"git@git.com"` should be changed to `"git@git-company"`
+    `"git@github.com"` should be changed to `"git@github-company"`
     
     ```
-    git clone git@git-company:<company-username>/comapny-repository.git
+    git clone git@github-company:<company-username>/comapny-repository.git
     ```
 
 3. Add keys to SSH Agent
@@ -357,8 +357,8 @@ Since I have more than one git accounts from same or different providers. I conf
     Run command `"ssh -T git@<alias>"` to test keys configuration. For example,
 
     ```
-    ssh -T git@git-personal
-    ssh -T git@git-company
+    ssh -T git@github-personal
+    ssh -T git@github-company
     ssh -T git@bitbucket-personal
     ```
 
