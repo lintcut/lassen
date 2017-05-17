@@ -28,12 +28,16 @@ The Common Develop Environment is the standard development environmentused by me
         - [5.1.1 Install](#511-install)
         - [5.1.2 Authentication](#512-authentication)
         - [5.1.3 Initialize](#513-initialize)
-        - [5.1.4 Checkout](#514-checkout)
-        - [5.1.5 Commands Help](#55-commands-help)
+        - [5.1.4 Commands Help](#514-commands-help)
     - [5.2 Bash](#52-bash)
     - [5.3 Visual Studio](#53-visual-studio)
         - [5.3.1 Version](#531-version)
     - [5.4 Visual Studio Code](#54-visual-studio)
+        - [5.4.1 Version](#541-download)
+        - [5.4.2 Extensions](#542-extensions)
+        - [5.4.3 Basic Configuration](#543-basic-configuration)
+        - [5.4.4 C C++ Configuration](#544-c-c++-configuration)
+        - [5.4.5 Go Configuration](#545-go-configuration)
     - [5.5 Windows Kits](#54-windows-kits)
         - [5.5.1 SDK](#551-sdk)
         - [5.5.2 WDK](#552-wdk)
@@ -443,9 +447,115 @@ Since I have more than one git accounts from same or different providers. I conf
 
 #### 5.1.3 Initialize
 
-#### 5.1.4 Checkout
+- Create a new local repository folder (`"mkdir $(CDEHOME)/src/newrepo"`)
+- Go to that folder (`"cd $(CDEHOME)/src/newrepo"`)
+- Init repository (`"git init"`)
+- Create/Edit files
+- Add all files (`'git -am "Add files"'`)
+- Add remote (`"git remote add origin git@github-lintcut:lintcut/newrepo.git"`)
+- Verify remote (`"git remote -v"`)
+- Push to remote (`"git push origin master"`)
 
-#### 5.1.5 Commands Help
+#### 5.1.4 Commands Help
+
+1. *Clone repository*
+    
+    ```
+    git clone git@<host>:<user>/<repoName>.git [path]
+    ```
+
+    For example,
+
+    ```
+    git clone git@github-lintcut:lintcut/myrepo.git ./myrepo
+    ```
+
+2. *Query status*
+    
+    ```
+    git status
+    ```
+
+3. *Add files*
+    
+    Add All Files
+
+    ```
+    git add all
+    ```
+
+    Stage changes and commit
+
+    ```
+    git commit -am "msg"
+    ```
+
+
+
+4. *Commit changes*
+
+    ```
+    git commit -m "msg"
+    ```
+
+5. *Cancel Previous Local Commit*
+    
+    ```
+    git reset HEAD~1
+    ```
+
+6. *Disgard changes of specified file*
+    
+    ```
+    git checout -- <fileName>
+    ```
+
+7. *Pull remote files*
+    
+    ```
+    git pull --rebase
+    ```
+
+    **NOTE:** We always use `rebase` flag to make history clean and readable.
+
+8. *Show commit history*
+    
+    **Show N history records with differences**
+
+    ```
+    git log -p -<N>
+    ```
+    
+    **Show N history records and each in oneline**
+
+    ```
+    git log --pretty=oneline -<N>
+    ```
+    
+    **Show N well-formatted history records**
+
+    ```
+    git log --pretty=format:"%h - %an, %ar : %s" -<N>
+    ```
+    
+    **Show N history records with statistics**
+
+    ```
+    git log --stat -<N>
+    ```
+    
+    **Show N history records limited by author, time, message**
+
+    ```
+    git log --author=name --since="date" --until="date" --grep="keywords" -<N>
+    ```
+
+    For example,
+
+    ```
+    git log --author=gye --since="2016-05-01" --until="2016-12-30" --grep="bug fix" -20
+    ```
+    
 
 ### 5.2 Bash
 
@@ -453,13 +563,51 @@ Since I have more than one git accounts from same or different providers. I conf
 
 #### 5.3.1 Version
 
+Use Visual Studio 2015 Professional Edition (Or Community Edition)
+
 ### 5.4 Visual Studio Code
+
+VSCode is a free, light-wight, easy-to-use and powerful editor.
+
+#### 5.4.1 Download
+
+Download from [Here](https://code.visualstudio.com/download)
+
+#### 5.4.2 Extensions
+
+- C/C++ [Link](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- Go [Link](https://marketplace.visualstudio.com/items?itemName=lukehoban.Go)
+- vscode-database [Link](https://marketplace.visualstudio.com/items?itemName=bajdzis.vscode-database)
+- CSS [Link](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-doiuse)
+- REST Client [Link](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+
+#### 5.4.3 Basic Configuration
+
+- Path
+
+- Console
+
+
+#### 5.4.4 C C++ Configuration
+
+#### 5.4.5 Go Configuration
+
 
 ### 5.5 Windows Kits
 
+We use latest SDK & WDK for Windows, and install them to default location.
+
+Download Windows Kits From [Here](https://developer.microsoft.com/en-us/windows/hardware/windows-driver-kit)
+
 #### 5.5.1 SDK
 
+Current Version - `10.0.15063.137`
+
 #### 5.5.2 WDK
+
+Current Version - `10.0.15063.0`
+
+Driver Samples - Download from [Github](https://github.com/Microsoft/Windows-driver-samples)
 
 ## 6 Project Settings
 
@@ -468,6 +616,8 @@ Since I have more than one git accounts from same or different providers. I conf
 ### 6.2 Visual Studio Code Workspace Settings
 
 ### 6.3 XCode Project Settings
+
+    TBD
 
 ## 7 Build and Output
 
